@@ -1,8 +1,147 @@
 body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .container {
-            max-width: 1200px;
-        }
+    font-family: 'Inter', sans-serif;
+    background-color: #1a202c; /* Fundo cinza escuro */
+    color: #e2e8f0; /* Cor do texto principal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Container principal que centraliza e delimita o conteúdo */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    background-color: #2d3748; /* Fundo do contêiner mais claro que o corpo */
+    border-radius: 1rem; /* Cantos arredondados */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+    border: 1px solid #4a5568;
+}
+
+/* Estilos para o cabeçalho e títulos */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+h1 {
+    font-size: 2.5rem; /* Título grande */
+    font-weight: 700;
+    color: #4fd1c5; /* Cor de destaque (ciano) */
+    letter-spacing: -0.025em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    margin-top: 0.5rem;
+    color: #a0aec0; /* Cor de texto secundária */
+}
+
+/* Seção de exibição do vídeo */
+.camera-feed {
+    width: 100%;
+    height: 20rem; /* Altura fixa */
+    background-color: #000;
+    border-radius: 0.75rem;
+    border: 2px solid #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    font-size: 1.125rem;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Estilos para os cartões das câmeras */
+.camera-card-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #63b3ed; /* Cor de destaque (azul) */
+    margin-bottom: 1rem;
+}
+
+.camera-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo com colunas */
+    gap: 1.5rem;
+}
+
+.camera-card {
+    background-color: #4a5568;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camera-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para os botões de controle */
+.control-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-button {
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.control-button:active {
+    transform: scale(0.98); /* Efeito de "clique" */
+}
+
+/* Cores específicas para os botões */
+.control-button[data-action="toggle"] {
+    background-color: #3182ce;
+}
+.control-button[data-action="toggle"]:hover {
+    background-color: #2c5282;
+}
+
+.control-button[data-action="record"] {
+    background-color: #38a169;
+}
+.control-button[data-action="record"]:hover {
+    background-color: #276749;
+}
+
+.control-button[data-action="stream"] {
+    background-color: #667eea;
+}
+.control-button[data-action="stream"]:hover {
+    background-color: #5a67d8;
+}
+
+/* Mensagem temporária (pop-up) */
+.message-element {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4a5568;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 100;
+}
