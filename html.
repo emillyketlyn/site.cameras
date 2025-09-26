@@ -1,152 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Câmeras de Segurança</title>
-    <!-- Inclui o Tailwind CSS para estilização rápida e responsiva -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .container {
-            max-width: 1200px;
-        }
-    </style>
-</head>
-<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Página carregada com sucesso!");
 
-    <!-- Estrutura principal da aplicação HTML -->
-    <div class="container mx-auto p-8 bg-gray-800 rounded-2xl shadow-lg border border-gray-700">
-        <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-teal-400">Gerenciador de Câmeras</h1>
-            <p class="mt-2 text-gray-400">Monitore sua segurança de qualquer lugar.</p>
-        </header>
+    // Seleciona todos os botões que têm a classe 'control-button'
+    const controlButtons = document.querySelectorAll('.control-button');
 
-        <main>
-            <!-- Seção de exibição do vídeo (simulada) -->
-            <section class="mb-8">
-                <div id="camera-feed" class="w-full h-80 bg-black rounded-xl border-2 border-gray-700 flex items-center justify-center text-gray-500 text-lg">
-                    <span>Área para o vídeo da câmera</span>
-                </div>
-            </section>
-
-            <!-- Seção de controles das câmeras -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-4 text-teal-300">Controles das Câmeras</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-                    <!-- Cartão da Câmera 1 -->
-                    <div class="camera-card bg-gray-700 p-6 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
-                        <h3 class="text-xl font-bold mb-2">Câmera 1</h3>
-                        <p class="text-sm text-gray-400 mb-4">Entrada principal</p>
-                        <div class="flex flex-col space-y-2">
-                            <button class="control-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-action="toggle" data-camera="1">Ligar/Desligar</button>
-                            <button class="control-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" data-action="record" data-camera="1">Gravar</button>
-                            <button class="control-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" data-action="stream" data-camera="1">Transmissão</button>
-                        </div>
-                    </div>
-
-                    <!-- Cartão da Câmera 2 -->
-                    <div class="camera-card bg-gray-700 p-6 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
-                        <h3 class="text-xl font-bold mb-2">Câmera 2</h3>
-                        <p class="text-sm text-gray-400 mb-4">Área do jardim</p>
-                        <div class="flex flex-col space-y-2">
-                            <button class="control-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-action="toggle" data-camera="2">Ligar/Desligar</button>
-                            <button class="control-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" data-action="record" data-camera="2">Gravar</button>
-                            <button class="control-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" data-action="stream" data-camera="2">Transmissão</button>
-                        </div>
-                    </div>
-
-                    <!-- Cartão da Câmera 3 -->
-                    <div class="camera-card bg-gray-700 p-6 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
-                        <h3 class="text-xl font-bold mb-2">Câmera 3</h3>
-                        <p class="text-sm text-gray-400 mb-4">Garagem</p>
-                        <div class="flex flex-col space-y-2">
-                            <button class="control-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-action="toggle" data-camera="3">Ligar/Desligar</button>
-                            <button class="control-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" data-action="record" data-camera="3">Gravar</button>
-                            <button class="control-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" data-action="stream" data-camera="3">Transmissão</button>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        </main>
-
-        <footer class="mt-10 text-center text-gray-500 text-sm">
-            <p>&copy; 2024 Gerenciador de Câmeras de Segurança. Todos os direitos reservados.</p>
-        </footer>
-    </div>
-
-    <!-- Script JavaScript para a funcionalidade da página -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("Página carregada com sucesso!");
-
-            // Seleciona todos os botões de controle
-            const controlButtons = document.querySelectorAll('.control-button');
-
-            controlButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const action = event.target.dataset.action;
-                    const camera = event.target.dataset.camera;
-                    handleCameraAction(camera, action);
-                });
-            });
-
-            // Função para lidar com as ações das câmeras
-            function handleCameraAction(camera, action) {
-                const messageBox = document.getElementById('message-box');
-                const cameraFeed = document.getElementById('camera-feed');
-                let message = '';
-
-                switch (action) {
-                    case 'toggle':
-                        console.log(`Câmera ${camera}: Ligando/Desligando...`);
-                        message = `Câmera ${camera} foi ligada ou desligada.`;
-                        break;
-                    case 'record':
-                        console.log(`Câmera ${camera}: Iniciando gravação...`);
-                        message = `Gravação iniciada na Câmera ${camera}.`;
-                        break;
-                    case 'stream':
-                        console.log(`Câmera ${camera}: Iniciando transmissão...`);
-                        message = `Iniciando transmissão da Câmera ${camera}.`;
-                        cameraFeed.innerHTML = `<span>Transmissão da Câmera ${camera}</span>`;
-                        break;
-                    default:
-                        message = `Ação desconhecida para a Câmera ${camera}.`;
-                        break;
-                }
-
-                // Exibe a mensagem em um formato simples (substituindo o antigo "alert")
-                showTemporaryMessage(message);
-            }
-
-            // Função para exibir uma mensagem temporária na tela
-            function showTemporaryMessage(message) {
-                const messageContainer = document.querySelector('.container');
-                const messageElement = document.createElement('div');
-                messageElement.textContent = message;
-                messageElement.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-700 text-white px-6 py-3 rounded-xl shadow-lg transition-opacity duration-500 ease-in-out opacity-0 z-50';
-                messageContainer.appendChild(messageElement);
-
-                // Força o reflow para a transição funcionar
-                void messageElement.offsetWidth;
-                messageElement.style.opacity = '1';
-
-                setTimeout(() => {
-                    messageElement.style.opacity = '0';
-                    messageElement.addEventListener('transitionend', () => {
-                        messageElement.remove();
-                    });
-                }, 3000); // Remove a mensagem após 3 segundos
-            }
+    // Adiciona um "ouvinte de evento" de clique a cada botão
+    controlButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Pega a ação e o número da câmera dos atributos de dados do botão
+            const action = event.target.dataset.action;
+            const camera = event.target.dataset.camera;
+            // Chama a função que lida com a ação da câmera
+            handleCameraAction(camera, action);
         });
-    </script>
+    });
 
-</body>
-</html>
+    /**
+     * Lida com as ações da câmera e exibe mensagens na tela.
+     * @param {string} camera O número da câmera.
+     * @param {string} action A ação a ser realizada (ex: 'toggle', 'record', 'stream').
+     */
+    function handleCameraAction(camera, action) {
+        const cameraFeed = document.getElementById('camera-feed');
+        let message = '';
+
+        // Usa um 'switch' para decidir qual mensagem exibir com base na ação
+        switch (action) {
+            case 'toggle':
+                console.log(`Câmera ${camera}: Ligando/Desligando...`);
+                message = `Câmera ${camera} foi ligada ou desligada.`;
+                break;
+            case 'record':
+                console.log(`Câmera ${camera}: Iniciando gravação...`);
+                message = `Gravação iniciada na Câmera ${camera}.`;
+                break;
+            case 'stream':
+                console.log(`Câmera ${camera}: Iniciando transmissão...`);
+                message = `Iniciando transmissão da Câmera ${camera}.`;
+                cameraFeed.innerHTML = `<span>Transmissão da Câmera ${camera}</span>`;
+                break;
+            default:
+                message = `Ação desconhecida para a Câmera ${camera}.`;
+                break;
+        }
+
+        // Chama a função para exibir a mensagem temporária na tela
+        showTemporaryMessage(message);
+    }
+
+    /**
+     * Exibe uma mensagem temporária na parte inferior da tela.
+     * @param {string} message A mensagem a ser exibida.
+     */
+    function showTemporaryMessage(message) {
+        const messageContainer = document.querySelector('.container');
+        const messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        messageElement.className = 'message-element';
+
+        messageContainer.appendChild(messageElement);
+
+        // Força a transição de opacidade
+        void messageElement.offsetWidth;
+        messageElement.style.opacity = '1';
+
+        setTimeout(() => {
+            messageElement.style.opacity = '0';
+            messageElement.addEventListener('transitionend', () => {
+                messageElement.remove();
+            });
+        }, 3000); // Remove a mensagem após 3 segundos
+    }
+});
