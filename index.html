@@ -1,36 +1,3 @@
-import React, { useState } from 'react';
-// O import do ReactDOM foi removido, pois a renderização agora é feita
-// pelo ambiente hospedeiro, o que resolve erros de inicialização.
-
-// Componente principal da aplicação
-const App = () => {
-  // Estado para armazenar a mensagem temporária
-  const [message, setMessage] = useState('');
-  // Estado para controlar a câmera ativa para a transmissão
-  const [activeCamera, setActiveCamera] = useState(null);
-
-  // Função para lidar com as ações das câmeras
-  const handleCameraAction = (camera, action) => {
-    let newMessage = '';
-    switch (action) {
-      case 'toggle':
-        newMessage = `Câmera ${camera} foi ligada ou desligada.`;
-        break;
-      case 'record':
-        newMessage = `Gravação iniciada na Câmera ${camera}.`;
-        break;
-      case 'stream':
-        newMessage = `Iniciando transmissão da Câmera ${camera}.`;
-        setActiveCamera(camera); // Define a câmera ativa para mostrar no feed
-        break;
-      default:
-        newMessage = `Ação desconhecida para a Câmera ${camera}.`;
-        break;
-    }
-    setMessage(newMessage);
-    // Remove a mensagem após 3 segundos
-    setTimeout(() => setMessage(''), 3000);
-  };
 
   return (
     <div className="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
