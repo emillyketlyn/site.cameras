@@ -1,4 +1,5 @@
-O import do ReactDOM foi removido, pois a renderização agora é feita
+import React, { useState } from 'react';
+// O import do ReactDOM foi removido, pois a renderização agora é feita
 // pelo ambiente hospedeiro, o que resolve erros de inicialização.
 
 // Componente principal da aplicação
@@ -81,7 +82,7 @@ const App = () => {
               {/* Cartão da Câmera 3 */}
               <div className="camera-card bg-gray-700 p-6 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
                 <h3 className="text-xl font-bold mb-2">Câmera 3</h3>
-                <p className="text-sm text-gray-400 mb-4">São José Operário</p>
+                <p className="text-sm text-gray-400 mb-4">Bairro São josé</p>
                 <div className="flex flex-col space-y-2">
                   <button className="control-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onClick={() => handleCameraAction(3, 'toggle')}>Ligar/Desligar</button>
                   <button className="control-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" onClick={() => handleCameraAction(3, 'record')}>Gravar</button>
@@ -107,3 +108,8 @@ const App = () => {
     </div>
   );
 };
+
+// As linhas de importação e renderização explícita do ReactDOM foram removidas daqui.
+// O ambiente espera que o componente seja exportado por padrão para renderizá-lo.
+
+export default App;
